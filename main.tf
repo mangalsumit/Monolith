@@ -1,11 +1,11 @@
 provider "aws" {
-  region = "your_aws_region"
+  region = "us-east-1"
 }
 
 # AWS Key Pair
 resource "aws_key_pair" "my_keypair" {
   key_name   = "your_keypair_name"  # You can change this according to your needs
-  public_key = file("~/.ssh/id_rsa.pub")  # Update with the path to your public key
+  public_key = file("./.ssh.pub")  # Update with the path to your public key
 }
 
 # Security Group
@@ -69,7 +69,7 @@ resource "aws_db_instance" "my_db" {
   engine            = "your_db_type"  # Specify your desired DB engine type
   instance_class    = "db.t2.micro"   # Change this as per your requirements
   allocated_storage = 20  # Change the allocated storage as needed
-  name              = "my_database"
+  #name              = "my_database"
   username          = "db_username"
   password          = "db_password"
 }
